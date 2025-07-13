@@ -13,7 +13,7 @@ public class SignupController {
 
     @GetMapping("/Signup")
     public String showSignupForm() {
-        return "Signup";
+        return "pages/Signup";
     }
 
     @PostMapping("/Signup")
@@ -22,6 +22,6 @@ public class SignupController {
                                  @RequestParam String password) {
         User user = new User(name, email, password);
         userRepository.save(user);
-        return "redirect:/login";
+        return "pages/redirect:/login";
     }
 }
