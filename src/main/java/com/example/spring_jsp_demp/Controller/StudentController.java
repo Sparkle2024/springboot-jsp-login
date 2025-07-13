@@ -34,7 +34,7 @@ public class StudentController {
     @GetMapping("/students")
     public String showStudents(Model model) {
         model.addAttribute("students", studentRepository.findAll());
-        return "students";
+        return "pages/students";
     }
 
     // Add student manually from students.jsp form
@@ -44,13 +44,13 @@ public class StudentController {
                              @RequestParam double percentage) {
         Student student = new Student(name, email, percentage);
         studentRepository.save(student);
-        return "redirect:/students";
+        return "pages/redirect:/students";
     }
 
     // Delete student by ID
     @PostMapping("/students/delete/{id}")
     public String deleteStudent(@PathVariable Long id) {
         studentRepository.deleteById(id);
-        return "redirect:/students";
+        return "pages/redirect:/students";
     }
 }
