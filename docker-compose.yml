@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: Saran@2006
+      MYSQL_DATABASE: studentdb
+    ports:
+      - "3306:3306"
+    networks:
+      - spring-net
+
+  springboot:
+    build:
+      context: .
+    container_name: springboot-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - spring-net
+
+networks:
+  spring-net:
