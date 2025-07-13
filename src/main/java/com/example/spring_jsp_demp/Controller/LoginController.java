@@ -9,7 +9,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login() {
-        return "login"; // renders login.jsp
+        return "pages/login"; // renders login.jsp
     }
 
     @PostMapping("/login")
@@ -22,13 +22,13 @@ public class LoginController {
             return "redirect:/students"; // renders welcome.jsp
         } else {
             model.addAttribute("error", "All fields required!");
-            return "login";
+            return "pages/login";
         }
     }
 
     // Optional: redirect root URL to /signup
     @GetMapping("/home")
     public String home() {
-        return "home";
+        return "pages/home";
     }
 }
